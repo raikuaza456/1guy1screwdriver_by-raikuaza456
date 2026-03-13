@@ -1,0 +1,86 @@
+/* TODO CENTRADO */
+.contenedor {
+    display: grid;
+    place-items: center;
+}
+
+img, video {
+  display: block;  /* Las imágenes son inline por defecto, hay que cambiarlas */
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;      /* Opcional: define un ancho */
+}
+
+/* Animación de fondo infinito para el cuerpo */
+@keyframes fluid-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animación de "respiración" para el texto */
+@keyframes text-warp {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+  50% { transform: scale(1.02) rotate(0.5deg); filter: hue-rotate(360deg); }
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  /* Fondo de gradiente animado */
+  background: linear-gradient(-45deg, #ff00ff, #00ffff, #ff0000, #ffff00, #00ff00);
+  background-size: 400% 400%;
+  animation: fluid-gradient 10s ease infinite;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+/* Estilo para todos los encabezados */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  animation: text-warp 3s ease-in-out infinite;
+  
+  /* Efecto de arcoíris en el texto */
+  background: linear-gradient(to right, #fff, #f0f, #0ff, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Sombra de neón multicapa */
+  text-shadow: 
+    3px 3px 0px #ff00ff,
+    -3px -3px 0px #00ffff,
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+h1 { font-size: 5rem; }
+h2 { font-size: 4rem; }
+
+/* Estilo para los párrafos */
+p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para legibilidad */
+  padding: 15px;
+  border: 5px dashed #00ff00;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px #ff00ff, inset 0 0 15px #00ffff;
+  transition: all 0.3s ease;
+  cursor: crosshair;
+}
+
+/* Efecto hover interactivo */
+p:hover {
+  transform: skewX(-5deg) scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  color: #000;
+  border-style: double;
+  border-color: #ff0000;
+}
